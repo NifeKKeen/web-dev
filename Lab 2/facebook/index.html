@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=yes, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Facebook</title>
+  <style>
+      :root {
+          --main-color: #0967FF;
+      }
+      * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          font-family: "Segoe UI Historic", sans-serif;
+      }
+      body {
+          height: 100svh;
+      }
+      button {
+          border-radius: 5px;
+      }
+      a {
+          text-decoration: none;
+          color: inherit;
+      }
+      main {
+          background: #F3F4F7;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 100vh;
+          padding: 0 20%;
+      }
+      main div:nth-child(1) {
+        /*flex-grow: 0;*/
+        /*flex-basis: 40%;*/
+        width: 50%;
+        font-size: 1.5rem;
+        /*padding: 3rem;*/
+      }
+      main h1 {
+          font-size: 3rem;
+          color: var(--main-color);
+          font-weight: bold;
+      }
+      main div:nth-child(2) {
+          max-width: 22rem;
+          /*flex-grow: 0;*/
+          /*flex-basis: 35%;*/
+          /*width: 100%;*/
+      }
+      main div:nth-child(2) div {
+          /*width: 100%;*/
+      }
+      main div.login {
+          background: white;
+          width: 100%;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+          padding: .6rem .6rem 1rem .6rem;
+      }
+      main form :not(:first-child) {
+          margin-top: .5rem;
+      }
+      main form label {
+          height: 100%;
+          display: block;
+      }
+      main form input {
+          height: 2rem;
+          width: 100%;
+          border: 1px solid #E5E7EB;
+          border-radius: 4px;
+      }
+      main form input::placeholder {
+          padding: .6rem;
+      }
+      main form button[type="submit"] {
+          height: 2.5rem;
+          width: 100%;
+          background: var(--main-color);
+          color: white;
+          border: 1px solid #E5E7EB;
+          font-size: 1rem;
+      }
+      .login__forget {
+          margin-top: .6rem;
+          text-align: center;
+          font-size: .8rem;
+      }
+      .login__forget a {
+          color: var(--main-color);
+      }
+      .new_account {
+          text-align: center;
+      }
+      .login hr {
+          margin: 1rem 0;
+          border: none;
+          border-top: 1px solid #E5E7EB;
+      }
+      .new_account button {
+          background: #43B72A;
+          padding: .8rem;
+          color: white;
+          border: none;
+          font-size: 1rem;
+      }
+      main :nth-child(2) > p {
+          margin-top: 1rem;
+          font-size: .8rem;
+          text-align: center;
+      }
+  </style>
+</head>
+<body>
+<main>
+  <div>
+    <h1>facebook</h1>
+    <p>Facebook помогает вам всегда оставаться на связи и общаться со своими знакомыми.</p>
+  </div>
+  <div>
+    <div class="login">
+      <form>
+        <label><input type="text" placeholder="Электронный адрес или номер телефона"></label>
+        <label><input type="password" placeholder="Пароль"></label>
+        <button type="submit">Вход</button>
+        <p class="login__forget"><a href="facebook/forget.html">Забыли пароль?</a></p>
+      </form>
+      <hr>
+      <div class="new_account">
+        <button><a href="facebook/new_accound.html">Создать новый аккаунт</a></button>
+      </div>
+    </div>
+    <p>
+      <strong>Создать Страницу</strong> знаменитости, музыкальной группы или компании.
+    </p>
+  </div>
+</main>
+</body>
+</html>

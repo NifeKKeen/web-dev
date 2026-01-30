@@ -1,0 +1,215 @@
+:root {
+    --primary-color: #1B1F23;
+    --secondary-color: #59636E;
+    --border-color: #D3DAE1;
+    --feature-background-color: #F3F5F7;
+    --add-on-color: #0969DA;
+    --feature-shallow-main-color: #59636E;
+    --recommended-background-color: #0E72E7;
+
+    --border-radius-card: .5rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Mona Sans", Arial, Helvetica, sans-serif;
+    font-size: .85rem;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.block_text_overflow {
+    white-space: nowrap;
+}
+.primary_button, .secondary_button {
+    padding: .6rem 1.05rem;
+    /*display: inline-block;*/
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--border-color) 1px solid;
+    border-radius: .4rem;
+    text-align: center;
+}
+
+.primary_button {
+    background: var(--primary-color);
+    color: white;
+}
+.secondary_button {
+    background: white;
+    color: black;
+}
+.accordion-button {
+    position: relative;
+    left: -.6em;
+}
+.accordion-button-closed {
+    background: none;
+    border: none;
+}
+
+main {
+    padding: 0 20%;
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    font-weight: 1600;
+}
+
+.hero__description {
+    padding: 0 2rem;
+    margin-top: 1.5rem;
+    color: var(--secondary-color);
+}
+.hero__button {
+    margin-top: 1.5rem;
+}
+
+.cards {
+    position: relative;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+}
+.card {
+    position: relative;
+    border: var(--border-color) 1px solid;
+    border-radius: var(--border-radius-card);
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 0;
+    /*z-index: 1;*/
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+}
+.cards__overview {
+    /*min-height: 16.4em;*/
+    padding: 1rem .8rem;
+    border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 1fr;
+    align-items: center;
+    justify-items: center;
+    background: white;
+}
+.cards__overview-description {
+    margin-top: .6em;
+    padding: 0 3em;
+    color: var(--secondary-color);
+    font-size: .8rem;
+    text-align: center;
+}
+.cards__overview-buttons-single, .cards__overview-buttons-double {
+    align-self: end;
+}
+
+.cards__price {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+}
+.cards__price-dollar {
+    padding: 0 .2rem;
+    position: relative;
+    top: -1em;
+    font-size: .8em;
+    color: var(--secondary-color);
+}
+.cards__price-amount {
+    font-size: 2rem;
+    margin-right: .1em;
+}
+.cards__price-per-month {
+    position: relative;
+    top: -1em;
+    font-size: .8rem;
+    color: var(--secondary-color);
+}
+
+.cards__overview-buttons-single, .cards__overview-buttons-double {
+    width: 100%;
+    display: grid;
+    gap: .8rem;
+}
+
+.cards__overview-buttons-single {
+    grid-template-columns: 1fr;
+}
+.cards__overview-buttons-double {
+    grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+}
+
+.cards__features {
+    height: 100%;
+    padding: 1rem;
+    background: var(--feature-background-color);
+    border-radius: 0 0 var(--border-radius-card) var(--border-radius-card);
+
+    list-style: none;
+}
+.cards__features-item {
+    padding: .4em;
+    display: flex;
+    align-items: start;
+}
+.cards__features-item .accordion-button {
+    color: var(--feature-shallow-main-color);
+    fill: var(--feature-shallow-main-color);
+}
+.cards__shallow-main {
+    color: var(--feature-shallow-main-color);
+    font-size: inherit;
+}
+.cards__shallow-secondary {
+    margin-top: .2em;
+    color: var(--secondary-color);
+    font-size: .8em;
+}
+
+.cards__detailed {
+    display: none;
+    color: var(--secondary-color);
+}
+
+.cards__everything-prev {
+    margin-bottom: 1em;
+}
+.cards__everything-prev svg {
+    position: relative;
+    left: -.6em;
+}
+
+.cards__featured-add-on-text {
+    margin-top: 1.2rem;
+    color: var(--add-on-color);
+    font-weight: bold;
+}
+
+.cards__recommended {
+    position: absolute;
+    inset: -1.4rem -.4rem -.4rem -.4rem;
+    border-radius: var(--border-radius-card);
+    padding-top: .2rem;
+    z-index: -1;
+    color: white;
+    background: var(--recommended-background-color);
+    font-size: .8em;
+    font-weight: bold;
+    text-align: center;
+}
