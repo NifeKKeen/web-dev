@@ -1,6 +1,8 @@
 :root {
     --primary-color: #1B1F23;
     --secondary-color: #59636E;
+    --primary-button-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.1490196078) 0, rgba(255, 255, 255, 0) 100%), var(--primary-color);
+    --primary-button-bg-effect: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%) !important;
     --border-color: #D3DAE1;
     --feature-background-color: #F3F5F7;
     --add-on-color: #0969DA;
@@ -61,12 +63,29 @@ summary::marker, summary::-webkit-details-marker {
 }
 
 .primary_button {
-    background: var(--primary-color);
+    position: relative;
+    background: var(--primary-button-bg);
     color: white;
+}
+.primary_button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    background-image: var(--primary-button-bg-effect);
+}
+.primary_button:hover::before {
+    opacity: 1;
 }
 .secondary_button {
     background: white;
     color: black;
+    transition: all .1s ease-in-out;
+}
+.secondary_button:hover {
+    border: 1px solid var(--primary-color);
 }
 .accordion-button {
     position: relative;
@@ -99,7 +118,7 @@ main {
     margin-top: 1.5rem;
 }
 
-/* -------------------------------------------------- */
+/* ---------------------------------------- */
 
 .cards {
     position: relative;
@@ -227,6 +246,11 @@ main {
     margin-bottom: .6em;
     color: var(--secondary-color);
     font-size: 1.1em;
+}
+.cards__info-detailed a {
+    color: var(--add-on-color);
+    text-decoration: underline;
+    text-underline-offset: .2em;
 }
 
 .cards__everything-prev {
@@ -399,4 +423,23 @@ main {
 .add-ons__card:hover .add-on__arrow-tail {
     color: currentColor;
     transform: translateX(0);
+}
+
+/* ---------------------------------------- */
+/*
+break points:
+mobile: 0px - 767px
+tablet: 768px - 991px
+desktop: 992px -
+ */
+
+@media screen and (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .add-ons__cards {
+        grid-template-columns: 1fr;
+    }
 }
