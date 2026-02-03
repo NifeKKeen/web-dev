@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button {
+    padding: .5rem 1rem;
+}
+body {
+    font-family: "Segoe UI", sans-serif;
+}
+main {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    transition: all 1s ease-in-out;
+}
+
+form input {
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: .2rem .5rem;
+}
+form label {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px
+}
+
+form button {
+    background: none;
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+form button:hover {
+    cursor: pointer;
+    background: linear-gradient(to right, #88ffed -20%, #82e1ff 40%, #6affec 120%);
+}
+.username {
+    background: linear-gradient(to right, #FF6A3D 0%, #FF2E93 70%, #ee00ff 110%, #FF6A3D 120%, #FF2E93 200%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.message {
+    margin-top: 1rem;
+    padding: 2rem;
+    border-radius: .5rem;
+    transition: all 1s ease-in-out;
+}
+.welcoming {
+    border: 1px solid #8ac09e;
+    background: #b8ffd1;
+}
+.bad {
+    border: 1px solid #9b7272;
+    background: #ffbaba;
+}
+
+.moved-up {
+    position: absolute;
+    transform: translateY(-40rem);
+}
+.disappeared {
+    opacity: 0;
+}
+.appeared {
+    opacity: 1;
+}
+
+@keyframes fun {
+    0% {
+        transform: translateY(10px);
+    }
+    11% {
+        transform: scale(1.1) rotate(24deg) skewX(-40deg);
+    }
+    34% {
+        transform: scale(.6) rotate(-240deg) translate(-12px, -100px);
+    }
+    69% {
+        transform: scale(2.5) rotate(200deg) translate(200px, -10px);
+    }
+    88% {
+        transform: scale(1.4) rotate(-1000deg) translate(-500px, -200px) skewX(20deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg) translate(0);
+    }
+}
+.fun {
+    animation: fun infinite 1s linear alternate;
+}
