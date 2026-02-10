@@ -1,3 +1,9 @@
+:root {
+    --deleting-transition-duration: .2s;
+    --completing-transition-duration: .2s;
+    --prioritizing-transition-duration: .4s;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +18,10 @@ pre, textarea {
 textarea {
     resize: none;
 }
+button[disabled] {
+    cursor: not-allowed;
+}
+
 main {
     max-width: 40rem;
     padding: 0 1.5rem;
@@ -70,4 +80,52 @@ ol {
 
 .task.prioritized {
     border-color: red;
+}
+
+.deleting {
+    transform: translateX(-100%);
+    opacity: 0;
+    box-shadow: red 4px 4px 4px;
+    transition: var(--deleting-transition-duration) ease-in-out;
+    transition-property: transform, opacity;
+}
+
+.completing {
+    background: lime;
+    transition: var(--completing-transition-duration) ease-in-out;
+    transition-property: background;
+}
+.de-completing {
+    background: #75cc66 !important;
+    transition: var(--completing-transition-duration) ease-in-out;
+    transition-property: background;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes de-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.prioritizing {
+    animation: pulse var(--prioritizing-transition-duration) ease-in-out alternate infinite;
+}
+.de-prioritizing {
+    animation: de-pulse var(--prioritizing-transition-duration) ease-in-out alternate infinite;
 }

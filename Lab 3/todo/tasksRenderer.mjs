@@ -7,6 +7,10 @@ export class TasksRenderer {
     this.rootEl = rootEl;
   }
 
+  disableButtons(taskEl) {
+    taskEl.querySelectorAll('button').forEach(btn => btn.disabled = true);
+  }
+
   renderTasks(tasksService) {
     // if (lastTasksSnapshot === tasks) return;
     const rootEl = this.rootEl;
@@ -59,30 +63,58 @@ export class TasksRenderer {
       const completeBtn = taskEl.querySelector('.tasks-complete-btn');
       const prioritizeBtn = taskEl.querySelector('.tasks-prioritize-btn');
 
-      deleteBtn.addEventListener('click', () => {
+      deleteBtn.addEventListener('click',  async () => {
+        this.disableButtons(taskEl);
+        taskEl.classList.add('deleting');
+        const rootStyles = getComputedStyle(document.documentElement);
+        const ms = (parseFloat(rootStyles.getPropertyValue('--deleting-transition-duration')) || 0) * 1000;
+        await wait(ms);
+
         tasksService.removeTask(task);
         taskEl.remove();
         this.renderTasks(tasksService);
       });
 
-      completeBtn.addEventListener('click', () => {
+      completeBtn.addEventListener('click',  async () => {
+        this.disableButtons(taskEl);
+        if (!task.completed) {
+          taskEl.classList.add('completing');
+        } else {
+          taskEl.classList.add('de-completing');
+        }
+        const rootStyles = getComputedStyle(document.documentElement);
+        const ms = (parseFloat(rootStyles.getPropertyValue('--completing-transition-duration')) || 0) * 1000;
+        await wait(ms);
+        console.log(ms)
+
         if (!task.completed) {
           task.completed = true;
         } else {
           task.completed = false;
         }
+        taskEl.classList.remove('completing', 'de-completing');
         this.renderTasks(tasksService);
       });
 
-      prioritizeBtn.addEventListener('click', () => {
+      prioritizeBtn.addEventListener('click',  async () => {
+        this.disableButtons(taskEl);
+        if (!task.prioritized) {
+          taskEl.classList.add('prioritizing');
+        } else {
+          taskEl.classList.add('de-prioritizing');
+        }
+        const rootStyles = getComputedStyle(document.documentElement);
+        const ms = (parseFloat(rootStyles.getPropertyValue('--prioritizing-transition-duration')) || 0) * 1000;
+        await wait(ms);
+
         if (!task.prioritized) {
           task.prioritized = true;
         } else {
           task.prioritized = false;
         }
+        taskEl.classList.remove('prioritizing', 'de-prioritizing');
         this.renderTasks(tasksService);
       });
     })
   }
-
 }
