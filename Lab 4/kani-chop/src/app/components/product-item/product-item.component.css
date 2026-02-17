@@ -1,0 +1,148 @@
+/* General Font Reset */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+/* Card Container */
+.product-card {
+  background: white;
+  width: 280px; /* Fixed width to match mobile/grid vibe */
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+  transition: box-shadow 0.2s;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* --- Image Section --- */
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px; /* Fixed height for consistency */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.product-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Red Badge (0-0-12) */
+.promo-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f53d2d; /* Specific red from image */
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+/* --- Content Section --- */
+
+/* Title */
+.product-title {
+  display: block;
+  color: #0063d1; /* Standard link blue */
+  font-size: 16px;
+  line-height: 1.4;
+  text-decoration: none;
+  margin-bottom: 8px;
+  /* Limit to 2 lines usually, but keeping simple here */
+}
+
+.product-title:hover {
+  text-decoration: underline;
+}
+
+/* Rating */
+.rating-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.stars {
+  color: #f53d2d; /* Match the red stars */
+  letter-spacing: 1px;
+  margin-right: 6px;
+}
+
+.review-count {
+  color: #0063d1; /* Blue like the title */
+  text-decoration: none;
+}
+
+/* --- Pricing Grid --- */
+.pricing-container {
+  display: flex;
+  align-items: stretch; /* Ensures divider spans full height */
+}
+
+.price-block, .installment-block {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels (Gray text: "Цена", "В рассрочку") */
+.label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+/* Standard Price Styling */
+.price-block {
+  padding-right: 12px;
+}
+
+.price-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Vertical Divider */
+.divider {
+  width: 1px;
+  background-color: #e0e0e0;
+  margin-right: 12px;
+}
+
+/* Installment Styling */
+.installment-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Yellow Highlight Box */
+.installment-tag {
+  background-color: #ffd600; /* Distinct yellow */
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.installment-multiplier {
+  color: #999;
+  font-size: 14px;
+}

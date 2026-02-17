@@ -1,0 +1,26 @@
+:host {
+  display: inline-block;
+}
+
+.stars-container {
+  position: relative; /* Context for absolute positioning */
+  display: inline-block;
+  font-size: 24px; /* Adjust size here */
+  line-height: 1;
+}
+
+.stars-bg {
+  color: #e0e0e0; /* Gray background */
+}
+
+.stars-fill {
+  color: #f53d2d; /* The red from your previous image */
+
+  /* Overlay logic */
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap; /* Prevents stars from wrapping to next line */
+  overflow: hidden; /* Hides the part of the stars that exceeds the width */
+  width: 0%; /* Default, overridden by [style.width] */
+}
