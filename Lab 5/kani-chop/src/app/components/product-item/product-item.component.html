@@ -1,0 +1,48 @@
+<li class="product-card">
+
+  <div class="card-image-wrapper">
+    <span class="promo-badge">0 • 0 • 12</span>
+
+    <img [src]="product().image" [alt]="product().name"
+         class="product-img">
+  </div>
+
+  <div class="card-content">
+    <a [href]="product().link" class="product-title" target="_blank">
+      {{ product().name }}
+    </a>
+
+    <div class="rating-row">
+      <app-stars [rating]="product().rating" />
+      <span class="review-count">(? отзыв)</span>
+    </div>
+
+    <div class="pricing-container">
+
+      <div class="price-block">
+        <span class="label">Цена</span>
+        <div class="price-value">{{ product().price }} ₸</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div>
+        <span>
+          <a href='https://t.me/share/url?
+            url={{encodeURIComponent(product().link)}}&
+            text={{encodeURIComponent(product().name)}}
+          '>Share</a>
+<!--          https://t.me/share/url?url=\"{{product().link}}"&text="{{product().name}}"-->
+        </span>
+      </div>
+
+<!--      <div class="installment-block">-->
+<!--        <span class="label">В рассрочку</span>-->
+<!--        <div class="installment-row">-->
+<!--          <span class="installment-tag">130 ₸</span>-->
+<!--          <span class="installment-multiplier">x3</span>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+  </div>
+</li>
