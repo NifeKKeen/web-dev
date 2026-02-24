@@ -8,6 +8,7 @@ import { ProductItemComponent } from '../product-item/product-item.component';
     ProductItemComponent
   ],
   templateUrl: './product-list.component.html',
+  standalone: true,
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {

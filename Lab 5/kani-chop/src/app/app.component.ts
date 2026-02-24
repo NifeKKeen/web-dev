@@ -8,6 +8,7 @@ import { ProductsService } from './services/products.service';
     ProductListComponent,
   ],
   templateUrl: './app.component.html',
+  standalone: true,
   styleUrl: './app.component.css'
 })
 export class AppComponent {
@@ -21,5 +22,11 @@ export class AppComponent {
       return;
     }
     this.currentCategory.set(category);
+  }
+
+  handleKanichClick(event: Event) {
+    console.log(event)
+    event.preventDefault();
+    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
   }
 }

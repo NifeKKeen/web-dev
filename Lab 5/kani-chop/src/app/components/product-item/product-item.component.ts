@@ -10,6 +10,7 @@ import { NgOptimizedImage } from '@angular/common';
     NgOptimizedImage
   ],
   templateUrl: './product-item.component.html',
+  standalone: true,
   styleUrl: './product-item.component.css'
 })
 export class ProductItemComponent {
