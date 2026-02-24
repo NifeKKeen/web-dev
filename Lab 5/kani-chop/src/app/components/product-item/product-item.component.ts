@@ -17,8 +17,16 @@ export class ProductItemComponent {
   protected readonly encodeURIComponent = encodeURIComponent;
   protected removeEvent = output<number>()
 
-  handleRemoveProduct() {
-    this.removeEvent.emit(this.product().id);
+  async handleRemoveProduct() {
+    if (await this.confirmRemove()) {
+      this.removeEvent.emit(this.product().id);
+    }
+  }
+
+  async confirmRemove() {
+    let res = confirm(`Are you sure you want to remove ${this.product().name}?`);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return res;
   }
 
   handleLikeProduct() {
