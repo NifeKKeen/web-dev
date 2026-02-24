@@ -9,6 +9,7 @@ body {
 
 /* Card Container */
 .product-card {
+  height: 100%;
   background: white;
   width: 280px; /* Fixed width to match mobile/grid vibe */
   padding: 16px;

@@ -15,5 +15,16 @@
   </div>
 </header>
 <main>
-  <app-product-list [products]="productService.getProducts()" />
+  <aside>
+    <ul>
+      @for (category of productService.getCategories(); track category.id) {
+        <li>
+          <button (click)="handleCategoryClick(category.name)" [class]="currentCategory() === category.name ? 'active' : ''">
+            {{ category.name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </aside>
+  <app-product-list [products]="productService.filterProducts(currentCategory())" />
 </main>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsService } from './services/products.service';
 
@@ -12,4 +12,14 @@ import { ProductsService } from './services/products.service';
 })
 export class AppComponent {
   protected productService = new ProductsService();
+
+  protected currentCategory = signal<string>('all');
+
+  handleCategoryClick(category: string) {
+    if (category === this.currentCategory()) {
+      this.currentCategory.set('all');
+      return;
+    }
+    this.currentCategory.set(category);
+  }
 }
