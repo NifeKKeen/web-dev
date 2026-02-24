@@ -1,0 +1,258 @@
+/* ==========================================================================
+   CSS Variables
+   ========================================================================== */
+:root {
+  /* Colors - Backgrounds & Text */
+  --bg-body: #f8f9fa;
+  --bg-surface: #ffffff;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --text-light: #ffffff;
+
+  /* Colors - Theme */
+  --color-primary: #007bff;
+  --color-primary-dark: #0056b3;
+  --color-primary-darker: #004494;
+  --color-primary-darkest: #003d82;
+
+  /* Colors - Actions & States */
+  --color-danger: #dc3545;
+  --color-secondary: #6c757d;
+
+  /* Colors - UI Elements */
+  --border-color: #ced4da;
+  --border-light: #e9ecef;
+  --text-id: #495057;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --focus-ring: rgba(0, 123, 255, 0.25);
+  --overlay-bg: rgba(0, 0, 0, 0.75);
+
+  /* Typography */
+  --font-family-base: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --line-height-base: 1.6;
+
+  /* Sizing & Spacing */
+  --max-width-container: 1200px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Transitions */
+  --transition-fast: 0.1s;
+  --transition-normal: 0.2s;
+  --transition-slow: 0.3s;
+}
+
+/* ==========================================================================
+   Base Styles & Layout
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
+  color: var(--text-main);
+  background-color: var(--bg-body);
+}
+
+.container {
+  max-width: var(--max-width-container);
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+.navbar {
+  background-color: var(--color-primary-dark);
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 1.5rem;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.nav-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-normal);
+}
+
+.nav-link:hover {
+  background-color: var(--color-primary-darker);
+}
+
+.active-link {
+  background-color: var(--color-primary-darkest);
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   Buttons & States
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity var(--transition-normal);
+}
+
+.btn:hover { opacity: 0.9; }
+.btn-primary { background-color: var(--color-primary); color: var(--text-light); }
+.btn-danger { background-color: var(--color-danger); color: var(--text-light); }
+.btn-secondary { background-color: var(--color-secondary); color: var(--text-light); }
+
+.loading-indicator {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Albums Component (List View)
+   ========================================================================== */
+.album-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.album-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-surface);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px var(--shadow-color);
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.album-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.album-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.album-id {
+  background-color: var(--border-light);
+  color: var(--text-id);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.album-item .btn-danger {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Album Detail Component
+   ========================================================================== */
+.album-detail-card {
+  background: var(--bg-surface);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem var(--focus-ring);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* ==========================================================================
+   Album Photos Component (Grid View)
+   ========================================================================== */
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.photo-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  background: var(--bg-surface);
+}
+
+.photo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.photo-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--overlay-bg);
+  color: var(--text-light);
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--transition-slow) ease;
+}
+
+.photo-card:hover .photo-title {
+  opacity: 1;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
