@@ -26,5 +26,8 @@
       }
     </ul>
   </aside>
-  <app-product-list [products]="productService.filterProducts(currentCategory())" />
+  <app-product-list
+    [products]="productService.filterProducts(currentCategory())"
+    (removeEvent)="productService.removeProduct($event)"
+  />
 </main>

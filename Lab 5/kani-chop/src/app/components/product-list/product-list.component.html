@@ -1,5 +1,11 @@
+
+
 <ul>
-  @for (product of products(); track product.id) {
-    <app-product-item [product]="product" />
+  @if (products().length === 0) {
+    <p>No products yet!</p>
+  } @else {
+    @for (product of products(); track product.id) {
+      <app-product-item [product]="product" (removeEvent)="handleRemoveProduct($event)" />
+    }
   }
 </ul>

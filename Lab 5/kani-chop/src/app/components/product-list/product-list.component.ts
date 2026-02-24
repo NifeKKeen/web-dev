@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductItemComponent } from '../product-item/product-item.component';
 
@@ -12,4 +12,9 @@ import { ProductItemComponent } from '../product-item/product-item.component';
 })
 export class ProductListComponent {
   products = input.required<Product[]>();
+
+  removeEvent = output<number>();
+  handleRemoveProduct(id: number) {
+    this.removeEvent.emit(id);
+  }
 }

@@ -28,4 +28,10 @@ export class ProductsService {
     console.log(categoryName, this.categories, this.products.filter(product => product.categoryId === categoryId), this.categories.find(category => category.name === categoryName))
     return this.products.filter(product => product.categoryId === categoryId);
   }
+
+  removeProduct(id: number) {
+    const idx = this.products.findIndex(product => product.id === id)
+    if (idx === -1) return;
+    this.products.splice(idx, 1);
+  }
 }

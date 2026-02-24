@@ -3,7 +3,7 @@
   <div class="card-image-wrapper">
     <span class="promo-badge">0 • 0 • 12</span>
 
-    <img [src]="product().image" [alt]="product().name"
+    <img [ngSrc]="product().image" width="250" height="220" [alt]="product().name"
          class="product-img">
   </div>
 
@@ -43,6 +43,18 @@
 <!--          <span class="installment-multiplier">x3</span>-->
 <!--        </div>-->
 <!--      </div>-->
+    </div>
+
+    <div class="like">
+      <div class="like-count">
+        <img width="32" height="32" ngSrc="https://cdn-icons-png.flaticon.com/512/9513/9513802.png" alt="like-icon">
+        {{ product().likes }}
+      </div>
+      <button (click)="handleLikeProduct()">Like</button>
+    </div>
+
+    <div class="remove">
+      <button (click)="handleRemoveProduct()">Remove this product</button>
     </div>
   </div>
 </li>
