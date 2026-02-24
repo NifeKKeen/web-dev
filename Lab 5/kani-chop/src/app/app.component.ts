@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsService } from './services/products.service';
 
@@ -11,7 +11,7 @@ import { ProductsService } from './services/products.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  protected productService = new ProductsService();
+  protected productService = inject(ProductsService);
 
   protected currentCategory = signal<string>('all');
 
