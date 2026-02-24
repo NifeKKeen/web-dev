@@ -1,22 +1,22 @@
 [
   {
-    "categoryId": 1,
+    "id": 1,
     "name": "Phones and gadgets"
   },
   {
-    "categoryId": 1,
-    "name": "Phones and gadgets"
+    "id": 2,
+    "name": "Computers"
   },
   {
-    "categoryId": 1,
-    "name": "Phones and gadgets"
+    "id": 3,
+    "name": "Household items"
   },
   {
-    "categoryId": 1,
-    "name": "Phones and gadgets"
+    "id": 4,
+    "name": "TV, audio, video"
   },
   {
-    "categoryId": 1,
-    "name": "Phones and gadgets"
+    "id": 5,
+    "name": "Magnum"
   }
 ]
