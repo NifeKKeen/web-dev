@@ -1,2 +1,10 @@
 <h2>Albums</h2>
-<app-album-list></app-album-list>
+@if (albums(); as albumData) {
+  @if (albumData.length === 0) {
+    <p>No albums yet!</p>
+  } @else {
+    <app-album-list [albums]="albumData"></app-album-list>
+  }
+} @else {
+  <p>No albums yet!</p>
+}
