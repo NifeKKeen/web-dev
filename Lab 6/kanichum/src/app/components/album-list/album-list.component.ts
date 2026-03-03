@@ -15,13 +15,13 @@ export class AlbumListComponent {
     {
       id: 1,
       title: 'Album 1',
-      coverSrc: 'https://picsum.photos/200/300',
+      coverSrc: '/tornado.png',
       date: '2023-01-01',
     },
     {
       id: 2,
       title: 'Album 2',
-      coverSrc: 'https://picsum.photos/200/300',
+      coverSrc: '/zoo-poster.png',
       date: '2023-02-01',
     }
   ])

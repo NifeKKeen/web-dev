@@ -1,10 +1,12 @@
-<div class="album-item">
-  <div class="album-info">
-    <span class="album-id">#{{album().id}}</span>
-    <span>{{album().title}}</span>
+<li class="album-item">
+  <div class="album-cover" style="background-image: url({{album().coverSrc}});"></div>
+
+  <div class="album-overlay">
+    <div class="album-info">
+      <span class="album-title">{{album().title}}</span>
+    </div>
+    <div class="album-actions">
+      <a class="btn btn-secondary" href="albums/{{album().id}}">Photos</a>
+    </div>
   </div>
-  <div>
-    <button class="btn btn-secondary">Photos</button>
-    <button class="btn btn-danger">Delete</button>
-  </div>
-</div>
+</li>

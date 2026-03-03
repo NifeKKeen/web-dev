@@ -1,41 +1,81 @@
-.album-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--bg-surface);
-  padding: 1rem 1.5rem;
-  border-radius: var(--radius-md);
-  box-shadow: 0 1px 3px var(--shadow-color);
-  border: 1px solid var(--border-light);
-  cursor: pointer;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+/* Resolves the structural discrepancy between Angular components and CSS Grid */
+:host {
+  display: contents;
 }
 
-.album-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px var(--shadow-color);
+.album-item {
+  position: relative;
+  height: 100%;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  overflow: hidden;
+  cursor: pointer;
+  list-style: none; /* Removes default ul/li bullet points */
+}
+
+.album-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary-dark); /* Fallback background */
+  background-size: cover;
+  background-position: center;
+  transition: transform var(--transition-slow) ease;
+  z-index: 1;
+}
+
+/* Zooms the background image slightly on hover */
+.album-item:hover .album-cover {
+  transform: scale(1.05);
+}
+
+.album-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Creates a dark gradient from the bottom up to ensure text readability */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  z-index: 2;
+
+  /* Animation initial state */
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity var(--transition-slow) ease, transform var(--transition-slow) ease;
+}
+
+/* Reveals the overlay and slides it up on hover */
+.album-item:hover .album-overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .album-info {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
+  margin-bottom: 1rem;
+  color: var(--text-light);
 }
 
 .album-id {
-  background-color: var(--border-light);
-  color: var(--text-id);
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--text-light);
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
   font-size: 0.875rem;
   font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
-.album-item .btn {
-  margin-left: 0.5rem;
-}
-
-.album-item .btn-danger {
-  position: relative;
-  z-index: 2;
+.album-title {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
