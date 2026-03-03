@@ -1,5 +1,5 @@
 <li class="album-item" [routerLink]="['/albums', album().id]">
-  <div class="album-cover" style="background-image: url('assets/placeholder.jpg');"></div>
+  <div class="album-cover" [style.background-image]="'url(' + album().coverSrc + ')'"></div>
 
   <div class="album-overlay">
     <div class="album-info">
