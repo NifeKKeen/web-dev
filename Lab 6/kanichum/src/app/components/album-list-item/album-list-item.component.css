@@ -1,0 +1,41 @@
+.album-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-surface);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px var(--shadow-color);
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.album-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.album-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.album-id {
+  background-color: var(--border-light);
+  color: var(--text-id);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.album-item .btn {
+  margin-left: 0.5rem;
+}
+
+.album-item .btn-danger {
+  position: relative;
+  z-index: 2;
+}
