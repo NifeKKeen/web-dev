@@ -1,10 +1,6 @@
 <h2>Albums</h2>
-@if (albums(); as albumData) {
-  @if (albumData.length === 0) {
-    <p>No albums yet!</p>
-  } @else {
-    <app-album-list [albums]="albumData"></app-album-list>
-  }
+@if (loading()) {
+  <div class="loading-indicator">Loading albums...</div>
 } @else {
-  <p>No albums yet!</p>
+  <app-album-list [albums]="albums()" (deleteAlbum)="handleDelete($event)"></app-album-list>
 }

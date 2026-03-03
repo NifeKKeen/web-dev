@@ -1,12 +1,15 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Album } from '../../models/albums';
 
 @Component({
   selector: 'app-album-list-item',
-  imports: [],
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './album-list-item.component.html',
   styleUrl: './album-list-item.component.css'
 })
 export class AlbumListItemComponent {
-  public album = input.required<Album>();
+  album = input.required<Album>();
+  delete = output<number>();
 }

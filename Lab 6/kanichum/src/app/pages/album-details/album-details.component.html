@@ -1,13 +1,19 @@
-<div class="album-detail-card">
-  <h2>Album Details</h2>
+@if (album()) {
+  <div class="album-detail-card">
+    <h2>Album Details: #{{album()?.id}}</h2>
+    <p class="text-muted">User ID: {{album()?.userId}}</p>
 
-  <div class="form-group">
-    <label for="albumTitle">Title</label>
-    <input type="text" id="albumTitle" class="form-control" placeholder="Enter album title">
-  </div>
+    <div class="form-group" style="margin-top: 1.5rem;">
+      <label for="albumTitle">Title</label>
+      <input type="text" id="albumTitle" class="form-control" [(ngModel)]="editTitle">
+    </div>
 
-  <div class="action-buttons">
-    <button class="btn btn-primary">Save Changes</button>
-    <button class="btn btn-secondary">Cancel</button>
+    <div class="action-buttons">
+      <button class="btn btn-primary" (click)="save()">Save Changes</button>
+      <a class="btn btn-secondary" [routerLink]="['/albums', album()?.id, 'photos']">View Photos</a>
+      <button class="btn btn-secondary" (click)="goBack()">Back</button>
+    </div>
   </div>
-</div>
+} @else {
+  <div class="loading-indicator">Loading details...</div>
+}

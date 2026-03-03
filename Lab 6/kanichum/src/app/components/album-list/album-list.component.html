@@ -1,5 +1,5 @@
 <ul class="album-list">
   @for (album of albums(); track album.id) {
-    <app-album-list-item [album]="album" />
+    <app-album-list-item [album]="album" (delete)="deleteAlbum.emit($event)" />
   }
 </ul>

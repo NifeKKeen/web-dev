@@ -1,5 +1,9 @@
 <div class="mb-2">
-  <button class="btn btn-secondary">Back to Albums</button>
+  <a class="btn btn-secondary" [routerLink]="['/albums', albumId()]">Back to Album</a>
 </div>
 <h2>Album Photos</h2>
-<app-album-photos-list></app-album-photos-list>
+@if (loading()) {
+  <div class="loading-indicator">Loading photos...</div>
+} @else {
+  <app-album-photos-list [photos]="photos()"></app-album-photos-list>
+}

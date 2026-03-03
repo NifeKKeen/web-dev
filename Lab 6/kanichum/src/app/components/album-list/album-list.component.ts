@@ -1,15 +1,15 @@
-import { Component, input, signal } from '@angular/core';
-import { AlbumListItemComponent } from '../album-list-item/album-list-item.component';
+import { Component, input, output } from '@angular/core';
 import { Album } from '../../models/albums';
+import { AlbumListItemComponent } from '../album-list-item/album-list-item.component';
 
 @Component({
   selector: 'app-album-list',
-  imports: [
-    AlbumListItemComponent
-  ],
+  standalone: true,
+  imports: [AlbumListItemComponent],
   templateUrl: './album-list.component.html',
   styleUrl: './album-list.component.css'
 })
 export class AlbumListComponent {
-  public albums = input.required<Album[]>();
+  albums = input.required<Album[]>();
+  deleteAlbum = output<number>();
 }

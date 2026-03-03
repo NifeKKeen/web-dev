@@ -1,5 +1,5 @@
 <div class="photos-grid">
-  <app-album-photos-list-item></app-album-photos-list-item>
-  <app-album-photos-list-item></app-album-photos-list-item>
-  <app-album-photos-list-item></app-album-photos-list-item>
+  @for (photo of photos(); track photo.id) {
+    <app-album-photos-list-item [photo]="photo" />
+  }
 </div>

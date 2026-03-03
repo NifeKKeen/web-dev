@@ -1,39 +1,39 @@
-import { Component, inject, signal } from '@angular/core';
-import { AlbumListComponent } from '../../components/album-list/album-list.component';
-import { Album } from '../../models/albums';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { AlbumService } from '../../services/album.service';
+import { Album } from '../../models/albums';
+import { AlbumListComponent } from '../../components/album-list/album-list.component';
 
 @Component({
   selector: 'app-albums',
-  imports: [
-    AlbumListComponent,
-  ],
+  standalone: true,
+  imports: [AlbumListComponent],
   templateUrl: './albums.component.html',
   styleUrl: './albums.component.css'
 })
-export class AlbumsComponent {
-  protected albumService = inject(AlbumService);
-
-  protected albums = signal<Album[] | null>(null);
-  // [
-  //   {
-  //     id: 1,
-  //     title: 'Album 1',
-  //     coverSrc: '/tornado.png',
-  //     date: '2023-01-01',
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Album 2',
-  //     coverSrc: '/zoo-poster.png',
-  //     date: '2023-02-01',
-  //   }
-  // ];
+export class AlbumsComponent implements OnInit {
+  private albumService = inject(AlbumService);
+  albums = signal<Album[]>([]);
+  loading = signal<boolean>(true);
 
   ngOnInit() {
-    this.albumService.getAlbums().subscribe(albums => {
-      console.log(albums)
-      this.albums.set(albums);
-    })
+    this.albumService.getAlbums().subscribe({
+      next: (data) => {
+        this.albums.set(data);
+        this.loading.set(false);
+      },
+      error: () => this.loading.set(false)
+    });
+  }
+
+  handleDelete(id: number) {
+    this.albumService.deleteAlbum(id).subscribe(
+      () => {
+        alert('Album deleted successfully');
+        this.albums.update(current => current.filter(a => a.id !== id));
+      },
+      () => {
+        alert('Error deleting album');
+      }
+    )
   }
 }

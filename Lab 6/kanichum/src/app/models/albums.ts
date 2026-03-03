@@ -1,6 +1,5 @@
 export interface Album {
-  id: number,
-  title: string,
-  coverSrc: string,
-  date: string,
+  userId: number;
+  id: number;
+  title: string;
 }

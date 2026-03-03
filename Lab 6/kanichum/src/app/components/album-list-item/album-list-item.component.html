@@ -1,12 +1,13 @@
-<li class="album-item">
-  <div class="album-cover" style="background-image: url({{album().coverSrc}});"></div>
+<li class="album-item" [routerLink]="['/albums', album().id]">
+  <div class="album-cover" style="background-image: url('assets/placeholder.jpg');"></div>
 
   <div class="album-overlay">
     <div class="album-info">
       <span class="album-title">{{album().title}}</span>
     </div>
     <div class="album-actions">
-      <a class="btn btn-secondary" href="albums/{{album().id}}">Photos</a>
+      <a class="btn btn-secondary" [routerLink]="['/albums', album().id, 'photos']" (click)="$event.stopPropagation()">Photos</a>
+      <button class="btn btn-danger" (click)="$event.stopPropagation(); delete.emit(album().id)">Delete</button>
     </div>
   </div>
 </li>
