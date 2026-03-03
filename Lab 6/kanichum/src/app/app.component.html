@@ -1,1 +1,12 @@
-Kanichum
+<header class="navbar">
+  <h1 class="header-title">Kanichum</h1>
+  <nav class="nav-links-container">
+    <a routerLink="/home" class="nav-link" routerLinkActive="active-link">Home</a>
+    <a routerLink="/albums" class="nav-link" routerLinkActive="active-link">Albums</a>
+    <a routerLink="/about" class="nav-link" routerLinkActive="active-link">About</a>
+  </nav>
+</header>
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
